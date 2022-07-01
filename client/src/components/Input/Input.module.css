@@ -1,0 +1,30 @@
+.formTodo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.inputTodo {
+  font-size: 18px;
+  outline-color: purple;
+  color: purple;
+  flex: 2;
+  padding: 0 10px;
+}
+
+.addTodoButton {
+  color: #fff;
+  background: purple;
+  border: 2px solid purple;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 30px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.addTodoButton:active {
+  color: purple;
+  background: #fff;
+}
