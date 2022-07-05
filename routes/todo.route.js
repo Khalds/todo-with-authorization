@@ -4,7 +4,7 @@ const authMiddleware = require("../models/middleware/auth.middleware")
 
 const router = Router()
 
-router.get("/todo", todoController.getAllTodo)
+router.get("/todo/:id", authMiddleware, todoController.getAllTodo)
 router.post("/todo", authMiddleware, todoController.postTodo)
 router.delete("/todo/:id", authMiddleware, todoController.removeTodoById)
 router.patch("/todo/:id", authMiddleware, todoController.patchTodoById)

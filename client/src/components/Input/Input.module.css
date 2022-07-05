@@ -1,15 +1,14 @@
 .formTodo {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 30px 0;
 }
 
 .inputTodo {
   font-size: 18px;
   outline-color: purple;
   color: purple;
-  flex: 2;
+  flex: 1;
   padding: 0 10px;
 }
 
@@ -27,4 +26,10 @@
 .addTodoButton:active {
   color: purple;
   background: #fff;
+}
+
+.Input h1 {
+  color: purple;
+  font-size: 36px;
+  text-align: center;
 }

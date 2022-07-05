@@ -10,19 +10,20 @@ module.exports.todoController = {
         user: req.user.id,
         text,
       })
-
       res.json(todo)
     } catch (e) {
-      return res.status(401).json("Неверный токен")
+      return res.status(401).json({ error: "Ошибка при запросе на сервер" })
     }
   },
 
   getAllTodo: async (req, res) => {
     try {
-      const todo = await Todo.find()
-      res.json(todo)
+      const todo = await Todo.find({user: req.params.id})
+  
+        res.json(todo)
+      
     } catch (e) {
-      res.json(e)
+      res.json({ error:e.message })
     }
   },
 
@@ -38,9 +39,9 @@ module.exports.todoController = {
         return res.json("Todo was deleted")
       }
 
-      return res.status(401).json("Нет прав на удаление!")
+      return res.status(401).json({ error: "Нет прав на удаление!" })
     } catch (e) {
-      res.json("Ошибка" + e.toString())
+      res.json({ error: "Ошибка" + e.toString() })
     }
   },
 
@@ -58,7 +59,7 @@ module.exports.todoController = {
       )
       res.json(todo)
     } catch (e) {
-      res.json("Ошибка" + e.toString())
+      res.json({ error: "Ошибка" + e.toString() })
     }
   },
 }

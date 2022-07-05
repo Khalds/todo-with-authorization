@@ -1,0 +1,28 @@
+.Navbar span {
+  color: purple;
+  text-decoration: none;
+  font-weight: 800px;
+  text-transform: uppercase;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.Navbar span:hover {
+  border-bottom: 3px solid purple;
+}
+
+.Navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: end;
+  width: 90%;
+}
+
+.active {
+  border-bottom: 2px solid purple;
+}

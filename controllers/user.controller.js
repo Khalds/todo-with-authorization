@@ -27,9 +27,7 @@ module.exports.userController = {
 
       res.json(user)
     } catch (e) {
-      return res
-        .status(400)
-        .json({ error: "Ошибка при регистрации: " + e.toString() })
+      return res.status(400).json({ error: "Пользователь уже существует" })
     }
   },
 
@@ -40,13 +38,17 @@ module.exports.userController = {
       const candidate = await User.findOne({ login })
 
       if (!candidate) {
-        return res.status(401).json("Недействительное имя пользователя")
+        return res
+          .status(401)
+          .json({ error: "Недействительное имя пользователя" })
       }
 
       const valid = await bcrypt.compare(password, candidate.password)
 
       if (!valid) {
-        return res.status(401).json("Недействительный пароль пользователя")
+        return res
+          .status(401)
+          .json({ error: "Недействительный пароль пользователя" })
       }
 
       const payload = {
@@ -55,12 +57,12 @@ module.exports.userController = {
       }
 
       const token = await jwt.sign(payload, process.env.SECRET_JWT_KEY, {
-        expiresIn: "21h",
+        expiresIn: "24h",
       })
 
-      res.json({ token })
+      res.json({ userId: payload.id, token: token, login: payload.login })
     } catch (e) {
-      res.json(e.message)
+      res.json({ error: e.message })
     }
   },
 }

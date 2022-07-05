@@ -8,7 +8,9 @@ import styles from "./Todos.module.css"
 
 function Todos() {
   const todos = useSelector((state) => state.todo.todos)
+
   const process = useSelector((state) => state.todo.process)
+  const error = useSelector((state) => state.todo.error)
 
   const dispatch = useDispatch()
 
@@ -16,15 +18,20 @@ function Todos() {
     dispatch(fetchTodos())
   }, [dispatch])
 
+  if (error) {
+    return <div>{error}</div>
+  }
   return (
-    <div className={styles.todos}>
-      {process && (
-        <CircularProgress color="secondary" className={styles.loader} />
-      )}
-      {todos.map((todo) => {
-        return <Todo key={todo._id} todo={todo} />
-      })}
-    </div>
+    <>
+      <div className={styles.todos}>
+        {process && (
+          <CircularProgress color="secondary" className={styles.loader} />
+        )}
+        {todos.map((todo) => {
+          return <Todo key={todo._id} todo={todo} />
+        })}
+      </div>
+    </>
   )
 }
 

@@ -1,0 +1,70 @@
+.Wrapper {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+.Sign {
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: rgba(191, 7, 233, 0.15) 0px 5px 15px 0px;
+}
+
+.SignBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 40px;
+}
+
+.Sign input {
+  font-size: 18px;
+  outline-color: purple;
+  color: purple;
+  padding: 10px 20px;
+}
+
+.Sign button {
+  color: #fff;
+  background: purple;
+  border: 2px solid purple;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.Sign button:active {
+  color: purple;
+  background: #fff;
+}
+
+.HomeCenter {
+  width: 45%;
+  padding: 10px 50px 70px;
+  margin: 40px auto;
+  box-shadow: rgba(191, 7, 233, 0.15) 0px 5px 15px 0px;
+}
+
+.Sign p {
+  color: #000;
+  font-weight: 500;
+}
+.Sign p a {
+  color: purple;
+}
+
+.Sign h1 {
+  color: purple;
+  font-size: 42px;
+}
+
+.Error {
+  color: red;
+  font-weight: 500;
+}
